@@ -1,5 +1,7 @@
 package dev.omaremara.auctionsystem.client.controller;
 
+import dev.omaremara.auctionsystem.client.util.ViewUtil;
+import dev.omaremara.auctionsystem.client.view.BidView;
 import dev.omaremara.auctionsystem.model.Lot;
 import dev.omaremara.auctionsystem.model.User;
 import java.util.ArrayList;
@@ -16,4 +18,6 @@ public class LotListController {
                            new User(2, "Bidder", ""), 30),
                    new Lot(2, "Ball", new User(3, "Mark", ""), null, 30));
   }
+
+  public void bid(Lot lot) { ViewUtil.setSceneRoot(new BidView(lot)); }
 }
