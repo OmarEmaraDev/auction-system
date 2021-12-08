@@ -1,7 +1,3 @@
-repositories {
-  mavenCentral()
-}
-
 plugins {
   application
   id("org.openjfx.javafxplugin") version "0.0.10"
@@ -17,5 +13,6 @@ application {
 }
 
 dependencies {
-    implementation(project(":model"))
+  implementation(project(":model"))
+  implementation("com.google.code.gson:gson:2.8.9")
 }
