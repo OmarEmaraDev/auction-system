@@ -5,6 +5,8 @@ public class NewLotRequest {
   public int sellerID;
   public int initialBid;
 
+  public NewLotRequest() {}
+
   public NewLotRequest(String title, int sellerID, int initialBid) {
     this.title = title;
     this.sellerID = sellerID;

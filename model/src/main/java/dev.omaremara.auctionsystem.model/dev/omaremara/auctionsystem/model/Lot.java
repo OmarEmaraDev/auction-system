@@ -9,6 +9,8 @@ public class Lot {
   public User currentBidder;
   public int currentBid;
 
+  public Lot() {}
+
   public Lot(int id, String title, User seller, User currentBidder,
              int currentBid) {
     this.id = id;
