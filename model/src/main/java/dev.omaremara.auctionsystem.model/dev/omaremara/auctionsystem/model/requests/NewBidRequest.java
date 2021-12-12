@@ -5,6 +5,8 @@ public class NewBidRequest {
   public int bidderID;
   public int bid;
 
+  public NewBidRequest() {}
+
   public NewBidRequest(int lotID, int bidderID, int bid) {
     this.lotID = lotID;
     this.bidderID = bidderID;
