@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import dev.omaremara.auctionsystem.server.contexts.LoginContext;
 
 public class Main {
   public static void main(String[] args) {
@@ -15,7 +16,8 @@ public class Main {
       ExecutorService executor = Executors.newFixedThreadPool(processorsCount);
       server.setExecutor(executor);
 
-      // TODO: Create approperiate contexts.
+      // TODO: Create appropriate contexts.
+      server.createContext("/api/login/", new LoginContext());
 
       server.start();
     } catch (IOException e) {
