@@ -1,5 +1,6 @@
 package dev.omaremara.auctionsystem.client;
 
+import com.google.gson.Gson;
 import dev.omaremara.auctionsystem.client.util.ViewUtil;
 import dev.omaremara.auctionsystem.client.view.LoginView;
 import dev.omaremara.auctionsystem.model.User;
@@ -9,6 +10,7 @@ import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 
 public class Main extends Application {
+  public static final Gson gson = new Gson();
   public static Stage primaryStage;
   public static User user;
 
