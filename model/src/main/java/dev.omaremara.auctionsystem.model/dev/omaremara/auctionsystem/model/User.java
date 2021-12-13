@@ -13,3 +13,9 @@ public class User {
     this.password = password;
   }
 }
+
+// CREATE TABLE users (
+//     id       INTEGER PRIMARY KEY,
+//     name     VARCHAR(128) NOT NULL,
+//     password VARCHAR(256) NOT NULL
+// );

@@ -10,6 +10,9 @@ javafx {
 application {
   mainModule.set("dev.omaremara.auctionsystem.client")
   mainClass.set("dev.omaremara.auctionsystem.client.Main")
+  applicationDefaultJvmArgs = System.getProperties().
+    filter({(key, value) -> key.toString().startsWith("auctionSystem")}).
+    map({(key, value) -> "-D$key=$value"})
 }
 
 dependencies {

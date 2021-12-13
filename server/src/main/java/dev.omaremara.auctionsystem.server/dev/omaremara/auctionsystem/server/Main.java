@@ -13,7 +13,7 @@ public class Main {
 
   public static void main(String[] args) {
     try {
-      int port = Integer.getInteger("server.port");
+      int port = Integer.getInteger("auctionSystem.port");
       HttpServer server = HttpServer.create(new InetSocketAddress(port), 0);
       int processorsCount = Runtime.getRuntime().availableProcessors();
       ExecutorService executor = Executors.newFixedThreadPool(processorsCount);
