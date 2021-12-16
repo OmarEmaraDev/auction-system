@@ -7,6 +7,7 @@ import java.net.InetSocketAddress;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import dev.omaremara.auctionsystem.server.contexts.LoginContext;
+import dev.omaremara.auctionsystem.server.contexts.RegisterContext;
 
 public class Main {
   public static final Gson gson = new Gson();
@@ -21,6 +22,7 @@ public class Main {
 
       // TODO: Create appropriate contexts.
       server.createContext("/api/login/", new LoginContext());
+      server.createContext("/api/register/", new RegisterContext());
 
       server.start();
     } catch (IOException e) {
