@@ -18,7 +18,7 @@ import java.sql.*;
 public class LoginContext implements HttpHandler {
     private User getUser(LoginRequest loginRequest) throws LoginException {
         String connectionURL = System.getProperty("auctionSystem.JDBC.connection.url");
-        try (Connection connection = DriverManager.getConnection(connectionURL)) {
+        try (Connection connection = DriverManager.getConnection(connectionURL, "postgres", "0")) {
             String query = "SELECT * FROM users WHERE name = ?";
             try (PreparedStatement statement = connection.prepareStatement(query)) {
                 statement.setString(1, loginRequest.name);
@@ -36,13 +36,13 @@ public class LoginContext implements HttpHandler {
                         }
                     }
                 } catch (SQLException exception) {
-                    throw new RuntimeException("Couldn't retrieve user from database!", exception);
+                    throw new LoginException("Couldn't retrieve user from database!");
                 }
             } catch (SQLException exception) {
-                throw new RuntimeException("Couldn't query from database!", exception);
+                throw new LoginException("Couldn't query from database!");
             }
         } catch (SQLException exception) {
-            throw new RuntimeException("Couldn't establish connection to database!", exception);
+            throw new LoginException("Couldn't establish connection to database!");
         }
     }
 
@@ -53,8 +53,7 @@ public class LoginContext implements HttpHandler {
 
         String response;
         try {
-           User user;
-           user = getUser(loginRequest);
+            User user = getUser(loginRequest);
             response = Main.gson.toJson(user, User.class);
             exchange.sendResponseHeaders(200, response.length());
 
