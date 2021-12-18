@@ -56,7 +56,6 @@ public class LoginContext implements HttpHandler {
             User user = getUser(loginRequest);
             response = Main.gson.toJson(user, User.class);
             exchange.sendResponseHeaders(200, response.length());
-
         } catch (LoginException exception){
             ErrorResponse errorResponse = new ErrorResponse(exception.getMessage());
             response = Main.gson.toJson(errorResponse, ErrorResponse.class);

@@ -46,7 +46,7 @@ public class RegisterContext implements HttpHandler {
                 statement.setString(3, registerRequest.password);
                 statement.execute();
             } catch (SQLException exception) {
-                throw new RegisterException("Couldn't query from database!");
+                throw new RegisterException("Couldn't insert into database!");
             }
         } catch (SQLException exception) {
             throw new RegisterException("Couldn't establish connection to database!");
@@ -62,10 +62,10 @@ public class RegisterContext implements HttpHandler {
                     result.next();
                     return result.getInt("count");
                 } catch (SQLException exception) {
-                    throw new RegisterException("Could not retrive users from database!");
+                    throw new RegisterException("Could not retrieve from database!");
                 }
             } catch (SQLException exception) {
-                throw new RegisterException("Could not query users from database!");
+                throw new RegisterException("Could not query from database!");
             }
         } catch (SQLException exception) {
             throw new RegisterException("Could not establish connection to database!");
