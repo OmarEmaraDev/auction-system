@@ -2,6 +2,10 @@ package dev.omaremara.auctionsystem.server;
 
 import com.google.gson.Gson;
 import com.sun.net.httpserver.HttpServer;
+import dev.omaremara.auctionsystem.server.contexts.LoginContext;
+import dev.omaremara.auctionsystem.server.contexts.NewBidContext;
+import dev.omaremara.auctionsystem.server.contexts.NewLotContext;
+import dev.omaremara.auctionsystem.server.contexts.RegisterContext;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.util.concurrent.ExecutorService;
@@ -18,7 +22,10 @@ public class Main {
       ExecutorService executor = Executors.newFixedThreadPool(processorsCount);
       server.setExecutor(executor);
 
-      // TODO: Create approperiate contexts.
+      server.createContext("/api/login/", new LoginContext());
+      server.createContext("/api/register/", new RegisterContext());
+      server.createContext("/api/new/lot/", new NewLotContext());
+      server.createContext("/api/new/bid/", new NewBidContext());
 
       server.start();
     } catch (IOException e) {
