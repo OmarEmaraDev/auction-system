@@ -3,6 +3,7 @@ package dev.omaremara.auctionsystem.server;
 import com.google.gson.Gson;
 import com.sun.net.httpserver.HttpServer;
 import dev.omaremara.auctionsystem.server.contexts.LoginContext;
+import dev.omaremara.auctionsystem.server.contexts.LotsContext;
 import dev.omaremara.auctionsystem.server.contexts.NewBidContext;
 import dev.omaremara.auctionsystem.server.contexts.NewLotContext;
 import dev.omaremara.auctionsystem.server.contexts.RegisterContext;
@@ -26,6 +27,7 @@ public class Main {
       server.createContext("/api/register/", new RegisterContext());
       server.createContext("/api/new/lot/", new NewLotContext());
       server.createContext("/api/new/bid/", new NewBidContext());
+      server.createContext("/api/lots/", new LotsContext());
 
       server.start();
     } catch (IOException e) {
