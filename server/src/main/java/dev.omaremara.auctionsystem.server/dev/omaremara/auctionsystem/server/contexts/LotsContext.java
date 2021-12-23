@@ -31,7 +31,7 @@ public class LotsContext implements HttpHandler {
               (SELECT to_json(seller.*) AS seller FROM (
                 SELECT * FROM users WHERE id = lot.seller
               ) AS seller),
-              (SELECT to_json(bidder.*) AS bidder FROM (
+              (SELECT to_json(bidder.*) AS "currentBidder" FROM (
                 SELECT * FROM users WHERE id = lot.bidder
               ) AS bidder)
             FROM lots AS lot
