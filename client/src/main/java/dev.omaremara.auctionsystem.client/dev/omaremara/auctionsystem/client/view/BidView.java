@@ -3,6 +3,7 @@ package dev.omaremara.auctionsystem.client.view;
 import dev.omaremara.auctionsystem.client.controller.BidController;
 import dev.omaremara.auctionsystem.client.view.View;
 import dev.omaremara.auctionsystem.model.Lot;
+import java.lang.NumberFormatException;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
@@ -73,7 +74,7 @@ public class BidView implements View {
       errorLabel.setText(null);
       try {
         controller.submit(lot, Integer.valueOf(bidField.getText()), errorLabel);
-      } catch (Exception ex) {
+      } catch (NumberFormatException exception) {
         errorLabel.setText("Please enter integer value!");
       }
     });
