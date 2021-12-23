@@ -15,6 +15,11 @@ application {
     map({(key, value) -> "-D$key=$value"})
 }
 
+tasks.withType(JavaCompile::class) {
+  options.compilerArgs.add("-Xlint:unchecked")
+  options.compilerArgs.add("-Xlint:deprecation")
+}
+
 dependencies {
   implementation(project(":model"))
   implementation("com.google.code.gson:gson:2.8.9")
