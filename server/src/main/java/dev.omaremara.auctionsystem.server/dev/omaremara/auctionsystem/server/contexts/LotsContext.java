@@ -27,7 +27,7 @@ public class LotsContext implements HttpHandler {
             SELECT
               lot.id,
               lot.title,
-              lot.bid,
+              lot.bid AS "currentBid",
               (SELECT to_json(seller.*) AS seller FROM (
                 SELECT * FROM users WHERE id = lot.seller
               ) AS seller),
