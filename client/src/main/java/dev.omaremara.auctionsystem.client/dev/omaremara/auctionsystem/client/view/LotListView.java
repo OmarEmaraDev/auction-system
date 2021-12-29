@@ -17,6 +17,10 @@ import javafx.scene.paint.Color;
 
 public class LotListView implements View {
   public Parent getRoot() {
+    Button logOutButton = new Button("Logout");
+    logOutButton.setOnAction(e -> LotListController.logOut());
+    logOutButton.setCancelButton(true);
+
     Label errorLabel = new Label();
     errorLabel.setTextFill(Color.RED);
 
@@ -50,7 +54,8 @@ public class LotListView implements View {
 
     VBox layout = new VBox(10);
     layout.setPadding(new Insets(20, 80, 0, 80));
-    layout.getChildren().addAll(headerLabel, list, errorLabel, newLotButton);
+    layout.getChildren().addAll(logOutButton, headerLabel, list, errorLabel,
+                                newLotButton);
     return layout;
   }
 }

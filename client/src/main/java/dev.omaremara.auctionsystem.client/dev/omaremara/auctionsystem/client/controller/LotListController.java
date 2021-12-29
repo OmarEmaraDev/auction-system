@@ -4,6 +4,7 @@ import com.google.gson.reflect.TypeToken;
 import dev.omaremara.auctionsystem.client.Main;
 import dev.omaremara.auctionsystem.client.util.ViewUtil;
 import dev.omaremara.auctionsystem.client.view.BidView;
+import dev.omaremara.auctionsystem.client.view.LoginView;
 import dev.omaremara.auctionsystem.client.view.NewLotView;
 import dev.omaremara.auctionsystem.model.Lot;
 import dev.omaremara.auctionsystem.model.User;
@@ -45,4 +46,6 @@ public class LotListController {
   public static void newLot() { ViewUtil.setSceneRoot(new NewLotView()); }
 
   public static void bid(Lot lot) { ViewUtil.setSceneRoot(new BidView(lot)); }
+
+  public static void logOut() { ViewUtil.setSceneRoot(new LoginView()); }
 }
