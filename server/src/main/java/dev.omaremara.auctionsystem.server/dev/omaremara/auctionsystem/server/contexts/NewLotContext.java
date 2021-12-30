@@ -22,6 +22,9 @@ import java.sql.Statement;
 public class NewLotContext implements HttpHandler {
   private void validateNewLot(NewLotRequest newLotRequest)
       throws NewLotException, DataBaseException {
+    if (newLotRequest.initialBid <= 0) {
+      throw new NewLotException("Initial bid must be greater than zero!");
+    }
     String connectionURL =
         System.getProperty("auctionSystem.JDBC.connection.url");
     try (Connection connection = DriverManager.getConnection(connectionURL)) {
