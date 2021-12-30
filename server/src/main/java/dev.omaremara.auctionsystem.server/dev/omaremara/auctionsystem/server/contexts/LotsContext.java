@@ -23,7 +23,7 @@ public class LotsContext implements HttpHandler {
     try (Connection connection = DriverManager.getConnection(connectionURL)) {
       try (Statement statement = connection.createStatement()) {
         String query = """
-          SELECT json_agg(fullLots) AS result FROM (
+          SELECT COALESCE(json_agg(fullLots), '[]') AS result FROM (
             SELECT
               lot.id,
               lot.title,
